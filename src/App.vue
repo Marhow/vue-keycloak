@@ -10,7 +10,7 @@
     </ul>
   </nav>
   <section>
-    <p>Hello</p>
+    <p> {{ 1 + 1 }} {{ 'T' + '63' }}</p>
     <img src="#" alt="Image">
   </section>
   <section>
@@ -23,9 +23,13 @@
     <p>Hello</p>
   </aside>
   <article>K</article>
-  <img alt="Vue logo" src="./assets/logo.png">
 </template>
 
 <style>
   @import './style/scss/app.scss';
 </style>
+
+<script>
+
+
+</script>
