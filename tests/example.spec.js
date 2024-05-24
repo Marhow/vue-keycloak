@@ -208,6 +208,31 @@ test('SETUP USER PASSWORD', async ({ page }) => {
   const nonTemporaryPassword = page.locator('div').filter({ hasText: /^OnOff$/ }).locator('span').first();
   await nonTemporaryPassword.click();
 
+  //User 2
+  const selectUser2 = page.getByText('test', { exact: true });
+  await selectUser2.click();
+
+  const selectCredentialsTab2 = page.locator('[class="pf-c-tabs__item-text"]').locator('nth=2');
+  await selectCredentialsTab2.click();
+
+  const selectSetPassword2 = page.getByText('Set password', { exact: true });
+  await selectSetPassword2.click();
+
+  const inputUserPassword2 = page.locator('[id="password"]');
+  await inputUserPassword2.type('test');
+
+  const checkUserPassword2 = await inputUserPassword.inputValue();
+  expect( checkUserPassword2 ).toEqual('test');
+
+  const confirmPassword2= page.locator('[id="passwordConfirmation"]');
+  await confirmPassword2.type('test');
+
+  const checkConfirmPassword2 = await confirmPassword.inputValue();
+  expect( checkConfirmPassword2 ).toEqual('test');
+
+  const nonTemporaryPassword2 = page.locator('div').filter({ hasText: /^OnOff$/ }).locator('span').first();
+  await nonTemporaryPassword2.click();
+
   const savePasswordButton = page.locator('[class="pf-c-modal-box__footer"]').getByTestId('confirm');
   await savePasswordButton.click();
   await savePasswordButton.click();
